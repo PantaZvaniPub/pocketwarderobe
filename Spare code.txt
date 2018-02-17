@@ -1,0 +1,53 @@
+LOOP FOR GENERATING ITEMS ON THE INDEX PAGE
+error "items is not defined"
+
+<div class="ui link cards">
+    <% items.forEach(function(item){ %>
+        <div class="card">
+            <div class="image">
+                <img src="<%= item.image %>">
+            </div>
+            <div class="content">
+              <div class="header"><%= item.name %></div>
+              <div class="meta">
+                <a> <%= item.category %> </a>
+              </div>
+              <div class="description">
+                Matthew is an interior designer living in New York.
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                Last used <%= item.lastused%>
+              </span>
+              <span>Stored on <%= item.storedDate %> </span>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+INDEX TEST TEXT
+
+<div class="ui link cards">
+        <div class="card">
+            <div class="image">
+                <img src="https://gloimg.rglcdn.com/rosegal/pdm-product-pic/Clothing/2016/10/20/source-img/20161020173839_11735.jpg">
+            </div>
+            <div class="content">
+              <div class="header">Red Dress</div>
+              <div class="meta">
+                <a> Evening gowns </a>
+              </div>
+              <div class="description">
+                My favourite red dress
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                Last used Oct 2017
+              </span>
+              <span>Stored on Jan 2017 </span>
+            </div>
+        </div>
+    
+</div>

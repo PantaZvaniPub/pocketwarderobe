@@ -1,0 +1,48 @@
+<% include ./partials/header %>
+
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="active item">Home</a>
+        <a class="item">Packages</a>
+        <a class="item">About us</a>
+        <a class="item">Careers</a>
+        <div class="right item">
+          <a class="ui inverted button" href="/login">Log in</a>
+        </div>
+        <div class="right item">
+          <a class="ui inverted button" href="/register">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui link cards">
+    <% items.forEach(function(item){ %>
+        <div class="card">
+            <div class="image">
+                <img src="<%= item.image %>">
+            </div>
+            <div class="content">
+              <div class="header"><%= item.name %></div>
+              <div class="meta">
+                <a> <%= item.category %> </a>
+              </div>
+              <div class="description">
+                Matthew is an interior designer living in New York.
+              </div>
+            </div>
+            <div class="extra content">
+              <span class="right floated">
+                Last used <%= fecha.parse(item.lastused, "MMM, YYYY") %>
+              </span>
+              <span>Stored on <%= item.storedDate %> </span>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+<% include ./partials/footer %>

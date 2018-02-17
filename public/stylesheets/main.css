@@ -1,0 +1,17 @@
+#title {
+    margin-top: 3em;
+    font-size: 3em;
+}
+
+#registerForm {
+    margin-top: 50px;
+}
+
+.column {
+    margin-top: 50px;
+    max-width: 450px;
+}
+
+.logo {
+    color: white;
+}
