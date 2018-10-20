@@ -18,9 +18,19 @@
     "express-session": "^1.15.6",
     "fecha": "^2.3.2",
     "method-override": "^2.3.10",
+    "moment": "^2.21.0",
     "mongoose": "^5.0.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.4.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PantaZvaniPub/pocketwarderobe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PantaZvaniPub/pocketwarderobe/issues"
+  },
+  "homepage": "https://github.com/PantaZvaniPub/pocketwarderobe#readme"
 }

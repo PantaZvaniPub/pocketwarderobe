@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+    
+Sending item <%= item.name %> to <%= item.author.username %>
+<div class="ui middle aligned center aligned grid">
+    <div class="column ui stacked segment forme">
+        <form class="ui large form" action="/items/<%=item._id%>/?_method=PUT" method="POST">
+          <div class="field">
+            <label>Where is this item right now?</label>
+            <input type="text" name="item[location]" value="<%=item.location%>">
+          </div>
+          <div>
+            <input type="radio" name="item[status]" value="In Transit to Customer" checked> Pick this item up<br>
+            <input type="radio" name="item[status]" value="In Use"> I will drop this item off myself
+          </div>
+          <button class="ui button" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<a href="/items">Go Back to Items</a>
+
+<% include ./partials/footer %>

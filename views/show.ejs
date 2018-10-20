@@ -1,0 +1,60 @@
+<% include ./partials/header %>
+
+<div class="ui container itemShow">
+  <div class="ui internally celled grid">
+    <div class="five wide column">
+      <img class="itemImage" src="<%= item.image%>">
+    </div>
+    <div class="ui eleven wide column grid itemAttributes">
+      <div class="three wide column">
+        <strong>Item Name :</strong>
+      </div>
+      <div class="ten wide column">
+        <%= item.name%>
+      </div>
+      <div id="itemDescription" class="sixteen wide column">
+        <%= item.description%>
+      </div>
+      <div class="three wide column">
+        <strong>Stored :</strong>
+      </div>
+      <div class="ten wide column">
+        <%= moment(item.storedDate).format( "MMM YYYY") %>
+      </div>
+      <div class="three wide column">
+        <strong>Last Used :</strong>
+      </div>
+      <div class="ten wide column">
+        <%= moment(item.lastUsed).format( "MMM YYYY") %>
+      </div>
+      <div id="dugmiciEditDelete" class="large ui buttons">
+        <a class="ui button blue" href="/items/<%=item._id%>/edit">Edit</a>
+        <div class="or"></div>
+        <form action="/items/<%=item._id%>?_method=DELETE" method="POST">
+          <button class="ui button negative" >Delete</button>
+        </form>
+      </div>
+      <!--dugmici za retrievment-->
+      <div>
+        <% if(item.status === "Stored"){%>
+          <a class="ui button large blue" href="/items/<%=item._id%>/send">Retrieve this item</a>
+        <% } else if(item.status === "In transit to customer") { %>
+          <a class="ui button large blue" href="/items/show">Cancel Retrievment</a>
+        <% } else if(item.status === "In use") { %>
+          <a class="ui button large blue" href="/items/<%=item._id%>/pickup">Store this item</a>
+        <% } else if(item.status === "In transit to storage") { %>
+          <a class="ui button large blue" href="/items/show">Cancel Storage</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div><%= item.author.username%></div>
+<div><%= item.location%></div>
+<div><%= item.status%></div>
+<div><%= item.pickup%></div>
+
+
+
+<% include ./partials/footer %>

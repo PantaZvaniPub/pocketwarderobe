@@ -11,3 +11,33 @@
         <script src="semantic/dist/semantic.min.js"></script>
     </head>
     <body>
+        
+        <div class="pusher">
+          <div class="ui inverted vertical masthead center aligned segment">
+            <div class="ui container">
+              <div class="ui large secondary inverted pointing menu">
+                <a class="active item" href="/">Home</a>
+                <a class="item">Packages</a>
+                <a class="item">About us</a>
+                <a class="item">Careers</a>
+                <% if(!currentUser){ %>
+                    <div class="right item">
+                      <a class="ui inverted button" href="/login">Log in</a>
+                    </div>
+                    <div class="right item">
+                      <a class="ui inverted button" href="/register">Register</a>
+                    </div>
+                <% } else { %>
+                    <div class ="right item">
+                        <a class="ui inverted"><%=currentUser.username%></a>
+                    </div>
+                    <div class ="right item">
+                        <a class="ui inverted item" href="/logout">Logout</a>
+                    </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="telo">

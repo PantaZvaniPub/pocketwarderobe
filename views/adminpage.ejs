@@ -1,0 +1,61 @@
+<% include ./partials/header %>
+
+<p>ADMIN PAGE</p>
+
+
+
+<a class="forme ui button extra large green" href="/users">Accounts page</a>
+
+<!-- ITEMS TABLE -->
+
+<table class="ui celled table">
+    <tr>
+        <th>Item Name</th>
+        <th>Owner</th>
+        <th>Status</th>
+        <th>Location</th>
+        <th>Pickup</th>
+        <th>Stored Date</th>
+        <th>Last Used</th>
+    </tr>
+    <% items.forEach(function(item){ %>
+        <tr>
+            <td><%= item.name %></td>
+            <td><%= item.author.username %></td>
+            <td><%= item.status %></td>
+            <td><%= item.location %></td>
+            <td><%= item.pickup %></td>
+            <td><%= moment(item.storedDate).format( "DD MMM YYYY") %></td>
+            <td><%= moment(item.lastUsed).format( "DD MMM YYYY") %></td>
+            <td><a class="ui button blue" 
+                href="/items/<%=item._id%>/edit">Edit</a>
+            </td>
+            <td>
+                <form action="/items/<%=item._id%>?_method=DELETE" method="POST">
+                    <button class="ui button negative" >Delete</button>
+                </form>
+            </td>
+            <td>
+                <% if(item.status === "Stored"){%>
+                <a class="ui button large blue" href="/items/<%=item._id%>/send">Send to Customer</a>
+                <% } else if(item.status === "In Use"){%>
+                <a class="ui button large blue" href="/items/<%=item._id%>/pickup">Retrieve</a>
+                <% } else if(item.status === "In Transit to Customer"){%>
+                <a class="ui button large blue" href="/items/<%=item._id%>/cancelretrievment">Cancel Retrievment</a>
+                <% } else if(item.status === "In Transit to Storage"){%>
+                <a class="ui button large blue" href="/items/<%=item._id%>/cancelpickup">Cancel Pick up</a>
+                <% } %>
+            </td>
+            <td>
+                <% if(item.status === "In Transit to Storage"){%>
+                <a class="ui button large blue" href="/items/<%=item._id%>/storeitem">Submit to Storage</a>
+                <% } else if(item.status === "In Transit to Customer"){%>
+                <a class="ui button large blue" href="/items/<%=item._id%>/submittolocation">Submit to Location</a>
+                <% } %>
+            </td>
+        </tr>      
+    <% }); %>
+</table>
+
+
+<% include ./partials/footer %>

@@ -1,15 +1,35 @@
+#telo {
+    padding-top: 20px;
+}
+
 #title {
     margin-top: 3em;
     font-size: 3em;
 }
 
-#registerForm {
-    margin-top: 50px;
+#itemDescription {
+ font-style: italic;   
 }
 
-.column {
-    margin-top: 50px;
-    max-width: 450px;
+#dugmiciEditDelete {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.forme {
+    max-width: 450px; 
+}
+
+.itemShow {
+    margin-top: 30px;
+}
+
+.itemAttributes {
+    font-size: 1.2em;
+}
+
+.itemImage {
+    width: 95%;
 }
 
 .logo {

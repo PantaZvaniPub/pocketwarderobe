@@ -1,0 +1,36 @@
+<% include ./partials/header %>
+
+<p>ADMIN PAGE</p>
+
+<a class="forme ui button extra large green" href="/adminpage">Admin page</a>
+
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>City</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Delete </th>
+    </tr>
+    <% users.forEach(function(user){ %>
+        <tr>
+            <td><%= user.username %></td>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.city %></td>
+            <td><%= user.email %></td>
+            <td><%= user.password %></td>
+            <td>
+                <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+                    <button class="ui button negative" >Delete</button>
+                </form>
+            </td>
+            <td><a class="ui button blue" href="/users/<%=user._id%>/edit">Edit</a></td>
+            <td><a class="ui button blue" href="/useritems/<%=user._id%>">Items</a></td>
+        </tr>
+    <% }); %>
+</table>
+
+<% include ./partials/footer %>

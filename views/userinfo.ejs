@@ -1,0 +1,50 @@
+<% include ./partials/header %>
+
+    <!--firstname: String,-->
+    <!--lastname: String,-->
+    <!--email: String,-->
+    <!--city-->
+    <!--registrationdate: Date,-->
+    <!--lastLoginDate: Date,-->
+    <!--username: String,-->
+    <!--password: String-->
+
+<p>USER INFO EDIT PAGE</p>
+
+<div id="registerForm" class="ui middle aligned center aligned grid">
+    <div class="column ui stacked segment forme">
+        <form class="ui large form" action="/users/<%=user._id%>/?method=PUT" method="POST">
+          <div class="field">
+            <div class="two fields">
+              <div class="field">
+                <label>First Name</label>
+                <input type="text" name="user[firstname]" value="<%= user.firstname %>">
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input type="text" name="user[lastname]" value="<%= user.lastname %>">
+              </div>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Email Address</label>
+            <input type="text" name="user[email]" value="<%= user.email %>">
+            </div>
+            <div class="field">
+              <label>City</label>
+                <select class="ui fluid dropdown" name="user[city]">
+                    <option value=""></option>
+                    <option value="Belgrade">Belgrade</option>
+                    <option value="Novi Sad">Novi Sad</option>
+                    <option value="Nis">Nis</option>
+                </select>
+            </div>
+          </div>
+          <input type="Submit" class="ui button">
+        </form>
+    </div>
+</div>
+
+
+<% include ./partials/footer %>
